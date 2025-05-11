@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Do You Love Me?</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to right, #ffe0e9, #fad0c4);
+display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      margin: 0;
+    }
+
+#login-box, #message-box {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      width: 350px;
+      text-align: center;
+    }
+
+    input[type="text"] {
+      width: 85%;
+      padding: 12px;
+      margin: 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+button {
+      padding: 12px 25px;
+      background: #ff6f61;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+button:hover {
+      background: #ff3d3d;
+    }
+
+    #message {
+      text-align: left;
+      margin-top: 20px;
+      white-space: pre-line;
+      min-height: 120px;
+      font-size: 18px;
+      color: #444;
+    }
+
+h2, h3 {
+      color: #b23a48;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="login-box">
+    <h2>Welcome, My Cami</h2>
+    <input type="text" id="answer" placeholder="Do you love me so much? Yes or No?" />
+    <button onclick="checkLove()">Answer</button>
+  </div>
+
+  <div id="message-box" style="display:none;">
+    <h3>This is for you</h3>
+    <div id="message"></div>
+  </div>
+
+  <script>
+    function checkLove() {
+      const answer = document.getElementById('answer').value.trim().toLowerCase();
+
+      if (answer === 'yes') {
+        document.getElementById('login-box').style.display = 'none';
+        document.getElementById('message-box').style.display = 'block';
+
+        const message = `My love,
+
+Hearing you say 'yes' makes me love you forever, i'm sorry baby kung ang kulit kulit ko po and nag-aaway tayo dahil sa'kin. Don't be mad at me bebu, i'm your baby pa rin eh:(
+
+I wanna let you know that you'll always be my number one baby cami/tako na supeerr maldita at love na loveee. No matter what happens baby, I will handle your ugali okayyy? I LOVE YOU SO MUCH, MWUUAAAAAPSSS!!
+
+Thank you for loving me baby and doing all your best for our relationship.
+
+Forever yours,
+Iza.`;
+
+        typeWriter(message, 0);
+      } else {
+        alert("Oh Noooo!! I thought we promised to stay together until we die? Please say Yes^^");
+      }
+    }
+
+    function typeWriter(text, i) {
+      if (i < text.length) {
+        document.getElementById('message').innerHTML += text.charAt(i);
+        setTimeout(() => typeWriter(text, i + 1), 40);
+      }
+    }
+  </script>
+
+</body>
+</html>
